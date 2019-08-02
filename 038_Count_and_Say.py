@@ -13,7 +13,9 @@ __author__ = 'abhireddy96'
 
 class Solution:
     def countAndSay(self, n: int) -> str:
+        # Start with 1
         res = "1"
+        # Iterate n times
         for i in range(1, n):
             res = self.count(res)
         return res
@@ -21,13 +23,17 @@ class Solution:
     def count(self, num):
         s = ''
         i = 0
+        # Iterate over each digit in number
         while i < len(num):
-            # find next different number
             j = i + 1
+            # Loop till next different digit
             while j < len(num) and num[i] == num[j]:
                 j += 1
+            # Count of current digit
             count = j - i
+            # Resultant String = count of digit + digit itself
             s += str(count) + str(num[i])
+            # Assign index of next digit
             i = j
         return s
 

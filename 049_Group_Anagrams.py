@@ -10,13 +10,20 @@ from typing import List
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         res = dict()
+
+        # Iterate over list of words
         for s in strs:
+            # Sort letters in word
             sr = ''.join(sorted(s))
-            print(sr)
+            # check if sorted word is in hash map
+            # If so, add current word(unsorted) as it is into hash map as value(i.e hash map value field is list)
             if sr in res:
                 res[sr].append(s)
+            # If not, add sorted word as key
+            # current word(unsorted) as it is into hash map as value(i.e hash map value field is list)
             else:
                 res[sr] = [s]
+        # return hash map values which contains list of anagrams
         return res.values()
 
 

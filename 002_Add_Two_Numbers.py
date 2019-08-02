@@ -8,22 +8,30 @@ Output: 7 -> 0 -> 8
 __author__ = 'abhireddy96'
 
 
+# Node class
 class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
 
 
+# Create linked list from number
 def create_list(num):
+    # Reverse number
     s = str(num)[::-1]
     head = prev = None
+    # Iterate over each digit in number
     for ch in s:
+        # Create node for each digit
         node = ListNode(int(ch))
+        # Assign node prev pointer
         if prev is not None:
             prev.next = node
         prev = node
+        # Check if list is empty
         if head is None:
             head = prev
+    # Return head pointer
     return head
 
 
@@ -32,11 +40,15 @@ class Solution:
         cnt = 1
         n1 = 0
         n2 = 0
+        # Iterate until size of small list
         while l1 is not None and l2 is not None:
+            # Compute whole number from linked list
             n1 = n1 + cnt * l1.val
             n2 = n2 + cnt * l2.val
+            # Traverse to next node
             l1 = l1.next
             l2 = l2.next
+            # Increase count by 10 times
             cnt = cnt * 10
         return create_list(n1 + n2)
 

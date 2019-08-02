@@ -7,6 +7,7 @@ __author__ = 'abhireddy96'
 
 class Solution:
     def isPalindrome(self, x: int) -> bool:
+        # Reverse n compare
         return str(x) == str(x)[::-1]
 
 

@@ -8,10 +8,13 @@ __author__ = 'abhireddy96'
 
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
+        # if needle string is empty
         if not needle:
             return 0
+        # if needle is present in haystack , return matching index
         if needle in haystack:
             return haystack.index(needle)
+        # needle is not present in haystack
         return -1
 
 

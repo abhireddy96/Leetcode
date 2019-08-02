@@ -13,10 +13,15 @@ from typing import List
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        # Hash map with integers as keys and indices as values
         res = dict()
+        # Iterate over list of integers
         for i, v in enumerate(nums):
+            # Check if target - current value present in hash map
+            # If so, return indices
             if target-v in res:
                 return [res[target-v], i]
+            # Add integer to hash map -> key = integer , value = index
             else:
                 res[v] = i
         return []

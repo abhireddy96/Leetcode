@@ -15,9 +15,13 @@ from typing import List
 
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
+        # Iterate over list of integers
         for i, v in enumerate(nums):
+            # check if current value is greater or equal to target
+            # If so, insert at current index
             if v >= target:
                 return i
+        # If target is greater than all the elements in list
         return len(nums)
 
 

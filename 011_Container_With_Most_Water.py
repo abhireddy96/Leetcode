@@ -15,12 +15,20 @@ class Solution:
         beg = 0
         end = len(height) - 1
         max_area = 0
+        # Iterate with two pointers,
+        # one pointer from starting index towards right
+        # other pointer from from last index towards left
         while beg < end:
+            # Compute Max Area
             max_area = max(max_area, (end - beg) * min(height[beg], height[end]))
+            # Check if beg pointer height is less than end pointer height
+            # If so, increment beg and move to right
             if height[beg] < height[end]:
                 beg += 1
+            # If not, decrement end and move to left
             else:
                 end -= 1
+
         return max_area
 
 

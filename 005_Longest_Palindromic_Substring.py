@@ -9,20 +9,25 @@ __author__ = 'abhireddy96'
 class Solution:
     def longestPalindrome(self, s: str) -> str:
 
+        # Is string is empty
         if not s:
             return s
+        # Contains single character
         if len(s) == 1:
             return s
 
+        # Let first character be resultant palindrome
         res = s[0]
+
+        # Iterate over string characters
         for i in range(0, len(s)):
 
-            # odd length
+            # Check for Palindrome odd length
             cur = self.palindrome_from_center(s, i, i)
             if len(cur) > len(res):
                 res = cur
 
-            # even length
+            # Check for Palindrome even length
             cur = self.palindrome_from_center(s, i, i + 1)
             if len(cur) > len(res):
                 res = cur

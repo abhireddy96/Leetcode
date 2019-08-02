@@ -14,9 +14,13 @@ from typing import List
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
         i = 0
+        # Iterate over list of integers
         while i < len(nums) - 1:
+            # Check if adjacent integers are same
+            # If so, remove it
             if nums[i] == nums[i + 1]:
                 nums.pop(i)
+            # If not, increment index
             else:
                 i += 1
         return len(nums)
